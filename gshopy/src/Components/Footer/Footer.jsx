@@ -1,4 +1,4 @@
-import {Box,Text,Input, Radio, RadioGroup, Checkbox,Button} from "@chakra-ui/react"
+import {Box,Text,Image,Input, Radio, RadioGroup, Checkbox,Button} from "@chakra-ui/react"
 import {EmailIcon} from "@chakra-ui/icons";
 import {FaFacebook,FaTwitter,FaInstagram,FaYoutube,FaPinterest,FaTiktok} from "react-icons/fa"
 import React from "react";
@@ -7,7 +7,7 @@ function Footer()
 {
     const [value, setValue] = React.useState('Women')
     return (
-        <div style={{background:"#edededc6"}}>
+        <div style={{background:"#edededc6",fontFamily:"Montserrat,sans-serif",paddingTop:"25px"}}>
         <Box display="flex" width="70%" justifyContent="space-evenly" margin="auto" >
             <Box textAlign="center">
                 <Text fontWeight="bold"> NEW TO YOOX</Text>
@@ -81,17 +81,31 @@ function Footer()
             </Box>
         </Box>
         <br/>
-            <Box>
-                <Box>
-                    <Text>CONNECT WITH US</Text>
-                    <FaFacebook/>
-                    <FaTwitter/>
-                    <FaInstagram/>
-                    <FaYoutube/>
-                    <FaPinterest/>
-                    <FaTiktok/>
+        <Box height="50px" borderTop="2px solid white">
+        <Box height="50px" display="flex" justifyContent="space-between" alignItems="center" width="70%" margin="auto" >
+                <Box display="flex" width="400px" justifyContent="space-evenly" alignItems="center">
+                    <Text fontSize="12px" fontWeight="600" fontFamily="">CONNECT WITH US</Text>
+                    <FaFacebook size="25px"/>
+                    <FaTwitter size="25px"/>
+                    <FaInstagram size="25px"/>
+                    <FaYoutube size="25px"/>
+                    <FaPinterest size="25px"/>
+                    <FaTiktok size="25px"/>
+                </Box>
+                <Box display="flex"  alignItems="center">
+                    <Image src="https://cdn-icons-png.flaticon.com/128/80/80623.png" alt="phone" width="50px" height="auto"/>
+                    <Text fontSize="12px" fontWeight="600">DOWNLOAD THE APP FOR iOS / ANDROID</Text>
                 </Box>
             </Box>
+        </Box>
+        <Box bg="blackAlpha.800" fontSize="12px" height="130px" display="flex" justifyContent="center"alignItems="center" fontFamily="Montserrat,sans-serif">
+            <Box textAlign="center">
+                <Text color="white">
+                    POWERED BY YOOX NET-A-PORTER GROUP-COPYRIGHT 2000-2022 YOOX NET-A-PORTER GROUP S.P.A -ALL RIGHTS RESERVED-SIAE LICENCE #401/1/526
+                </Text>
+                <Text color="gray">LEGAL AREA  /  PRIVACY POLICY</Text>
+            </Box>
+        </Box>
         </div>
     )
 }
