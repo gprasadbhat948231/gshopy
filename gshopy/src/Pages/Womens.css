@@ -1,0 +1,35 @@
+.women-container{
+    background-color: #edededc6;
+}
+.off{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+.container1{
+    display: flex;
+    width:78%;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+}
+.designers{
+    font-weight: bolder;
+    line-height: 30px;
+}
+.lastphoto{
+    margin-left: 290px;
+}
+.center{
+    left:49%;
+    margin-top: -60px;
+    position: absolute;
+    transform: translateX(-50%);
+    width:25%;
+    padding:5px;
+    z-index: 1;
+}
+.designers-container{
+    text-align: center;
+    background-color: white;
+}
