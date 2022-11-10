@@ -1,10 +1,17 @@
-import {useState,useEffect} from "react";
-import {Box, Image,Text} from "@chakra-ui/react";
+import {useState,useEffect, useContext} from "react";
+import { Box, Image,Text} from "@chakra-ui/react";
 import axios from "axios";
-import "./Womens.css"
-const getData=(cat)=>{
-    return axios.get(`http://localhost:3002/clothing?category=${cat}&_limit=20`);
+import Slider from "react-slick";
+import BottomNavbar from "../Components/Navbar/BottomNavbar";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import "./Womens.css";
+import { addTocart } from "../Cartcontext/action";
+import { CartContext } from "../Cartcontext/CartContextProvider";
+const getData=()=>{
+    return axios.get(`http://localhost:3002/Womens?_limit=10`);
 }
+
 const banner={
     backgroundImage:"url('https://www.yoox.com/images/yoox80/banners/6824_2_XmasLaunch_WM_Main.jpg?634485886601286852#width=1380&height=637')",
     backgroundSize:"cover",
@@ -16,12 +23,48 @@ const banner={
 function Womens()
 {
     const [data,setData]=useState([]);    
+    const {state,dispatch}=useContext(CartContext);
     useEffect(()=>{
         getData("Womens")
         .then((res)=>setData(res.data));
     },[])
+    console.log(data);
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+    
+      };
     return(
         <div className="women-container">
+            <BottomNavbar/>
             <div style={banner}>
                     <div>
                     <br/>
@@ -84,6 +127,54 @@ function Womens()
                     <h3 className="off">COOL COATS</h3>
                     <p>Puffer jackets and more to keep you warm</p>    
                     <Text textDecoration="underline" fontWeight="700">SHOP NOW</Text>    
+                </div>
+            </div>
+            <div className="carousel-Container">
+            <div className="newArrival">
+                <h2>NEW ARRIVALS</h2>
+                <h4 style={{textDecoration:"underline"}}>VIEW ALL</h4>
+            </div>
+            <div style={{width:"900px",marginLeft:"51px"}}>
+            <Slider {...settings} >
+                {
+                    data.map((item)=>(
+                            <div className="carousel" key={item.id}>
+                                <img className="cImage" src={item.image} alt="image1"/>
+                                <div>
+                                <Text fontWeight="700">{item.brand}</Text>
+                                <Text>{item.title}</Text>
+                                <div style={{display:"flex",justifyContent:"space-around",width:"100px",margin:"auto"}}> 
+                                <Text textDecoration="line-through">{item.original_price}</Text>
+                                <Text>{item.discount}</Text>
+                                </div>
+                                <div style={{display:"flex",justifyContent:"space-around",width:"100px",margin:"auto"}}>
+                                <Text fontWeight="700">{item.price}</Text>
+                                <Image onClick={()=>dispatch(addTocart(item))} src="https://cdn-icons-png.flaticon.com/128/7244/7244661.png" width="25px" height="20px" alt="heart"/>
+                                </div>
+                                </div>
+                            </div>
+                    ))
+                }
+            </Slider>   
+            </div>
+            </div>    
+            <div className="ccontainer">
+                <div className="cbelow">
+                <div className="fstandlst">
+                    <img src="https://www.yoox.com/images/yoox80/banners/6825_1_Hugo_Tris_W.jpg?634485886601286852#width=473&height=660" alt="image1"/>
+                    <h1 className="h1tag">HUGO</h1>
+                    <h5 className="h5tag">Express yourself</h5>
+                </div>
+                <div className="midone">
+                    <img src="https://www.yoox.com/images/yoox80/banners/6825_6_Montblanc_W_Tris.jpg?634485886601286852#width=473&height=660" alt="image1"/>
+                    <h1 className="h1tag">MONTBLANC</h1>
+                    <h5 className="h5tag">Its gifting Season</h5>
+                </div>
+                <div className="fstandlst">
+                    <img src="https://www.yoox.com/images/yoox80/banners/6825_5_Furla_W_Tris.jpg?634485886601286852#width=473&height=660" alt="image1"/>
+                    <h1 className="h1tag">FURLA</h1>
+                    <h5 className="h5tag">Autumn/Winter 2022 Collection</h5>
+                </div>
                 </div>
             </div>
         </div>

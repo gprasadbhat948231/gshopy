@@ -1,5 +1,6 @@
 import {Menu} from "@chakra-ui/react"
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Image,Text,Box,MenuButton,MenuItem,Button,MenuList} from "@chakra-ui/react";
 import {ChevronDownIcon,EmailIcon,UnlockIcon} from "@chakra-ui/icons";
 import {Popover,PopoverArrow,
@@ -81,7 +82,7 @@ function TopNavbar()
         </Box>
         <Box display="flex"  width="150px" padding="5px" justifyContent="space-between">
         <Box>
-            <Text color="black" fontSize="12px" textDecoration="underline" fontWeight="bolder">Register</Text>
+            <NavLink to="Registration"><Text color="black" fontSize="12px" textDecoration="underline" fontWeight="bolder">Register</Text></NavLink>
         </Box>
         <Box>
             <Text textDecoration="underline" fontSize="12px" paddingRight="5px" fontWeight="bolder"><UnlockIcon width="12px" height="12px"/>Login</Text>
