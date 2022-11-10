@@ -1,0 +1,31 @@
+.item_card{
+    display: flex;
+    border-bottom:1px solid grey ;
+    width:500px;
+    text-align: left;
+    align-items: center;
+    line-height: 30px;
+    border-right: 1px solid grey;
+    margin-bottom: 10px;
+}
+.imageSize{
+    width:150px;
+    height:150px;
+    padding-right: 10px;
+}
+.cart_container{
+    width:80%;
+    margin:auto;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.delivery{
+    width:300px;
+    height:400px;
+}
+.delivery>h2{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
