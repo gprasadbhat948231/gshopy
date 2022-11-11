@@ -45,14 +45,14 @@ function TopNavbar()
              </MenuList>
          </Menu>
          </Box>
-         <Box>
+         <Box padding="6px">
         <Popover
       initialFocusRef={initialFocusRef}
       placement='bottom'
       closeOnBlur={false}
     >
       <PopoverTrigger>
-        <Button bg="white" textDecoration="underline" height="auto">Customer Care</Button>
+        <Text bg="white" textDecoration="underline" fontWeight="700" fontSize="12px" height="auto" cursor="pointer">Customer Care</Text>
       </PopoverTrigger>
         <PopoverContent bg='White' textAlign="center" height="450px">
         <PopoverHeader pt={4} fontWeight='bold' border='0' >
@@ -85,7 +85,39 @@ function TopNavbar()
             <NavLink to="Registration"><Text color="black" fontSize="12px" textDecoration="underline" fontWeight="bolder">Register</Text></NavLink>
         </Box>
         <Box>
-            <Text textDecoration="underline" fontSize="12px" paddingRight="5px" fontWeight="bolder"><UnlockIcon width="12px" height="12px"/>Login</Text>
+            {/* <Text textDecoration="underline" fontSize="12px" paddingRight="5px" fontWeight="bolder"><UnlockIcon width="12px" height="12px"/>Login</Text> */}
+            <Popover
+      initialFocusRef={initialFocusRef}
+      placement='bottom'
+      closeOnBlur={false}
+    >
+      <PopoverTrigger>
+        <Text bg="white" textDecoration="underline" height="auto" fontSize="12px" cursor="pointer" fontWeight="700"><UnlockIcon width="11px" height="11px"/>Login</Text>
+      </PopoverTrigger>
+        <PopoverContent bg='White' textAlign="center" height="450px">
+        <PopoverHeader pt={4} fontWeight='bold' border='0' >
+          <Text bg="yellow.100" marginTop="8px">Its great to see you again </Text>
+        </PopoverHeader>
+        <PopoverArrow />
+        <PopoverCloseButton />
+        <PopoverBody width="100%">
+            <Box alignItems="center" textAlign="center">
+                <Box bg="blackAlpha.800" color="white" width="300px" height="auto" textAlign="center" fontSize={14} padding="10px">
+                    GO TO THE CUSTOMER CARE AREA
+                </Box>
+                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">TRACK YOUR ORDER</Text>
+                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">COMPLETE THE RETURN FORM</Text>
+                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">TRACK YOUR RETURN</Text>
+                <Text fontSize="20px" paddingTop="10px"  fontWeight="bold">Contact Us</Text>
+                <Text fontSize="14px">M-F 9am-9pm Sydney Time</Text>
+            </Box>
+        </PopoverBody>
+            <Box margin="auto"border="1px solid" width="250px" padding="20px" textAlign="center" bg="rgb(233, 233, 233)">
+                <EmailIcon margin="auto" width="30px" height="40px" />   
+                <Text textAlign="center">[E-mail]</Text> 
+            </Box>        
+        </PopoverContent>
+        </Popover>
         </Box>    
         </Box>
         </div>
