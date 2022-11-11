@@ -19,7 +19,7 @@ function Navbar()
                 <Text fontSize="12px" fontFamily="Montserrat,sans-serif" fontWeight="bold">DESIGN+ART</Text>
             </Box>
             <Box>
-                <Image  src={gShopy} alt="logo" width="200px" height="60px"/>
+                <NavLink to="/"><Image  src={gShopy} alt="logo" width="200px" height="60px"/></NavLink>
             </Box>
             <Box display="flex" width="250px"  justifyContent="space-evenly">
                 <Search2Icon/>

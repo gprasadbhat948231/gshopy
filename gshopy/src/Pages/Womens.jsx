@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Womens.css";
 import { addTocart } from "../Cartcontext/action";
 import { CartContext } from "../Cartcontext/CartContextProvider";
+import { NavLink } from "react-router-dom";
 const getData=()=>{
     return axios.get(`http://localhost:3002/Womens?_limit=10`);
 }
@@ -132,7 +133,7 @@ function Womens()
             <div className="carousel-Container">
             <div className="newArrival">
                 <h2>NEW ARRIVALS</h2>
-                <h4 style={{textDecoration:"underline"}}>VIEW ALL</h4>
+                <NavLink to="womenclothing"><h4 style={{textDecoration:"underline"}}>VIEW ALL</h4></NavLink>
             </div>
             <div style={{width:"900px",marginLeft:"51px"}}>
             <Slider {...settings} >
@@ -149,7 +150,7 @@ function Womens()
                                 </div>
                                 <div style={{display:"flex",justifyContent:"space-around",width:"100px",margin:"auto"}}>
                                 <Text fontWeight="700">{item.price}</Text>
-                                <Image onClick={()=>dispatch(addTocart(item))} src="https://cdn-icons-png.flaticon.com/128/7244/7244661.png" width="25px" height="20px" alt="heart"/>
+                                <Image cursor="pointer" onClick={()=>dispatch(addTocart(item))} src="https://cdn-icons-png.flaticon.com/128/7244/7244661.png" width="25px" height="20px" alt="heart"/>
                                 </div>
                                 </div>
                             </div>
