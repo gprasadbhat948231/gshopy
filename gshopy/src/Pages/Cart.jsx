@@ -2,9 +2,9 @@ import React from "react";
 import {CartContext} from "../Cartcontext/CartContextProvider";
 import {checkout,removeFromCart} from "../Cartcontext/action";
 import {useContext} from "react";
-import { Button,FormControl,Input, Textarea } from "@chakra-ui/react";
+import { Button,Text,FormControl,Input, Textarea } from "@chakra-ui/react";
 import "./cart.css";
-
+import { NavLink } from "react-router-dom";
 function Cart()
 {
     const {state,dispatch}=useContext(CartContext);
@@ -25,8 +25,8 @@ function Cart()
                 </div>   
             ))}
             </div>
-            <div>
-                <h1>Final Price:- ₹{Math.round(state.reduce((a,c)=>a+c.offer_price,0))}</h1>
+            <div style={{display:"flex",alignItems:"center",height:"500px"}}>
+                <Text fontWeight="700" textDecoration="underline">Final Price:- ₹{Math.round(state.reduce((a,c)=>a+c.offer_price,0))}</Text>
             </div>
             <div className="delivery">
                 <h2>Fill the form to checkout</h2>
@@ -43,7 +43,7 @@ function Cart()
                     <Input borderRadius="none" placeholder="Enter Phone Number"/>
                     <br/>
                     <br/>
-                    <Button width="100%" borderRadius="none" onClick={()=>console.log("clik")}>Place Order</Button>
+                    <NavLink to="/payment"><Button width="100%" borderRadius="none" background="black" color="white" padding="10px" onClick={dispatch(checkout)}>Place Order</Button></NavLink>
                 </FormControl>
             </div>
         </div>

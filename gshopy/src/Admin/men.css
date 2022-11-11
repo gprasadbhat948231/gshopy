@@ -1,0 +1,28 @@
+.menContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap:10px;
+    margin: auto;
+}
+.menCard>img{
+    width:300px;
+    height:300px;
+}
+.menCard{
+    margin: auto;
+    text-align: center;
+}
+.menCard>h4{
+    font-weight: 600;
+}
+.pagination{
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width:200px;
+}
+.modal{
+    display: flex;
+    justify-content: space-around;
+}

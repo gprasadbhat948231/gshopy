@@ -1,0 +1,8 @@
+.additemdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 500px;
+    margin:auto
+}

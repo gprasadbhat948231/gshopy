@@ -2,25 +2,47 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
-    Text
+    Text,
+    Button,
+    Box
   } from '@chakra-ui/react'
 import {SmallAddIcon,ViewIcon} from "@chakra-ui/icons";
 import "./womenproduct.css";
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useContext } from "react";
 import axios from "axios";
+
 import BottomMen from '../Components/Navbar/ButtomMen';
-const getData=()=>{
-  return axios.get(`http://localhost:3002/Mens?_limit=51`);
+
+import { addTocart } from "../Cartcontext/action";
+import { CartContext } from "../Cartcontext/CartContextProvider";
+
+const getData=(page)=>{
+  return axios.get(`http://localhost:3002/Mens?_limit=15&_page=${page}`);
 }
 function MensProducts()
 {
   const [men,setmen]=useState([]);
+  const {state,dispatch}=useContext(CartContext);
+  const [page,setPage]=useState(1);
 
+  const handlePage=(val)=>{
+    const value=page+val
+    setPage(value)
+  }
   useEffect(()=>{
-    getData()
+    getData(page)
     .then(res=>setmen(res.data))
     .catch((err)=>console.log(err));
-  },[])
+  },[page])
+
+  const itemalreadyexist=(id,cartItems)=>{
+    if(cartItems.find((item)=>item.id===id))
+    {
+      return true;
+    }
+    else 
+      return false;
+  }
     return(
         <div>
             <BottomMen/>
@@ -67,10 +89,19 @@ function MensProducts()
                           <h5 className="discount">{item.discount}</h5>
                           </div>
                           <h4 className="brand">US${item.offer_price}</h4>
+                          <Box display="flex" alignItems="center" justifyContent="space-around">
+                          <h4 className="brand">US${item.offer_price}</h4>
+                          <Button cursor="pointer" disabled={itemalreadyexist(item.id,state)} onClick={()=>dispatch(addTocart(item))}  width="100px" height="30px" alt="heart">Add To Cart</Button>
+                          </Box>
                       </div>
                     ))
                   }
                 </div>
+            </div>
+                <div className="pagination">
+                <Button disabled={page===1} onClick={()=>handlePage(-1)}>Prev</Button>
+                <Button disabled>{page}</Button>
+                <Button disabled={page===6} onClick={()=>handlePage(1)}>Next</Button>
             </div>
             
         </div>

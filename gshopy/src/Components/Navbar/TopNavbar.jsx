@@ -1,4 +1,4 @@
-import {Menu} from "@chakra-ui/react"
+import {Checkbox, Input, Menu} from "@chakra-ui/react"
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Image,Text,Box,MenuButton,MenuItem,Button,MenuList} from "@chakra-ui/react";
@@ -101,21 +101,33 @@ function TopNavbar()
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverBody width="100%">
-            <Box alignItems="center" textAlign="center">
-                <Box bg="blackAlpha.800" color="white" width="300px" height="auto" textAlign="center" fontSize={14} padding="10px">
-                    GO TO THE CUSTOMER CARE AREA
+            <Box borderTop="1px solid grey"alignItems="center" textAlign="center">
+                <p>Login with</p>
+                <Box padding="5px" display="flex" width="300px" justifyContent="space-around">
+                    <Box >
+                      <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo3ddUG-JEnK0cxeIPAUNA10x96-Qw_PKi3Q&usqp=CAU" alt="facebook" width="120px" height="52px" border="1px solid grey"/>
+                    </Box>
+                    <Box>
+                      <Image src="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=893&height=600&name=image8-2.jpg" alt="google" width="120px" height="52px" border="1px solid grey" background="white"/>
+                    </Box>
                 </Box>
-                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">TRACK YOUR ORDER</Text>
-                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">COMPLETE THE RETURN FORM</Text>
-                <Text fontSize="14px"borderBottom="1px solid grey" padding="10px">TRACK YOUR RETURN</Text>
-                <Text fontSize="20px" paddingTop="10px"  fontWeight="bold">Contact Us</Text>
-                <Text fontSize="14px">M-F 9am-9pm Sydney Time</Text>
+                <Box padding="10px">
+                    <label>or with your email address</label>
+                    <Input height="50px" borderRadius="none" placeholder="E-mail" fontWeight="700" color="black"/>
+                    <br/>
+                    <br/>
+                    <Input placeholder="Password" fontWeight="700" height="50px" borderRadius="none" color="black"/>
+                </Box>
+                <Box display="flex" marginTop="15px" alignItems="center">
+                  <Checkbox border="2px solid " height="20px" width="20px"></Checkbox>
+                  <Text paddingLeft="5px"><i>Remember me</i></Text>
+                </Box>
+                <Box>
+                  <i ><p style={{textDecoration:"underline",textAlign:"right",fontWeight:"700"}}>Forgot password?</p></i>
+                  <Button borderRadius="none" width="100%" background="black" color="white" height="50px">Log in</Button>
+                </Box>
             </Box>
         </PopoverBody>
-            <Box margin="auto"border="1px solid" width="250px" padding="20px" textAlign="center" bg="rgb(233, 233, 233)">
-                <EmailIcon margin="auto" width="30px" height="40px" />   
-                <Text textAlign="center">[E-mail]</Text> 
-            </Box>        
         </PopoverContent>
         </Popover>
         </Box>    
