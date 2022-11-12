@@ -83,14 +83,8 @@ function WomensProduct()
                       <div className="sidebarmenu"><Text>MATERIALS</Text><SmallAddIcon width="20px" height="20px"/></div>
                 </div>
                 <div>
-                  <Box display="flex" border="1px solid">
-                   <Box width="200px" marginLeft="100px" marginBottom="5px"border="1px solid">
-                      <Select name="sort" placeholder="Sort by Price" onChange={handleSort}>
-                            <option value="asc">Price Low to High</option>
-                            <option value="desc">Price High to Low</option>
-                      </Select>
-                    </Box>
-                   <Box width="200px" marginLeft="50px" marginBottom="5px"border="1px solid">
+                  <Box display="flex" >
+                   <Box width="200px" marginLeft="100px" marginBottom="5px">
                       <Select name="sort" placeholder="Sort by Price" onChange={handleSort}>
                             <option value="asc">Price Low to High</option>
                             <option value="desc">Price High to Low</option>
