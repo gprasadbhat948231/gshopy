@@ -10,7 +10,7 @@ import { addTocart } from "../Cartcontext/action";
 import { CartContext } from "../Cartcontext/CartContextProvider";
 import { NavLink } from "react-router-dom";
 const getData=()=>{
-    return axios.get(`http://localhost:3002/Womens?_limit=10`);
+    return axios.get(`http://localhost:3002/Womens?_limit=12`);
 }
 
 const banner={
@@ -19,7 +19,34 @@ const banner={
     backgroundRepeat:"no-repeat",
     height:"637px",
     width:"1380px",
-    margin:"auto"
+    margin:"auto",
+    display:"flex",
+    flexDirection:"column-reverse",
+    padding:"10px"
+}
+const lastBanner1={
+    backgroundImage:"url('https://www.yoox.com/images/yoox80/banners/6769_1_DesignArtHomedecor_WM_Bottom.png?634485886601286852#width=690&height=637')",
+    backgroundSize:"cover",
+    backgroundRepeat:"no-repeat",
+    height:"800px",
+    width:"50%",
+    margin:"auto",
+    display:"flex",
+    flexDirection:"column-reverse",
+    padding:"10px"
+}
+const lastBanner2={
+    backgroundImage:"url('https://www.yoox.com/images/yoox80/banners/6895_2_GenZ_W_Bottom.jpg?634485886601286852#width=690&height=637')",
+    backgroundSize:"cover",
+    backgroundRepeat:"no-repeat",
+    height:"800px",
+    width:"50%",
+    margin:"auto",
+    display:"flex",
+    flexDirection:"column-reverse",
+    justifyContent:"flex-start",
+    alignItems:"flex-end",
+    padding:"15px"
 }
 function Womens()
 {
@@ -29,7 +56,7 @@ function Womens()
         getData("Womens")
         .then((res)=>setData(res.data));
     },[])
-    console.log(data);
+    console.log(state.isAuth);
     const settings = {
         infinite: true,
         speed: 500,
@@ -67,26 +94,6 @@ function Womens()
         <div className="women-container">
             <BottomNavbar/>
             <div style={banner}>
-                    <div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    </div>
                     <Box fontFamily="Playfair Display,sans-serif" marginLeft="10px" padding="20px" height="150px" width="450px"color="black" bg="white" >
                         <Text  marginTop="2" fontSize="24px" fontWeight="700" >LIGHTS ON!</Text>
                         <Text  marginTop="4" fontSize="14px" fontWeight="100" color="gray.500">Enter to find the perfect present</Text>
@@ -178,6 +185,55 @@ function Womens()
                 </div>
                 </div>
             </div>
+            <div className="carousel-Container">
+            <div className="newArrival">
+                <h2>ONE OF A KIND</h2>
+                <NavLink to="womenclothing"><h4 style={{textDecoration:"underline"}}>VIEW ALL</h4></NavLink>
+            </div>
+            <div style={{width:"900px",marginLeft:"51px"}}>
+            <Slider {...settings} >
+                {
+                    data.map((item)=>(
+                            <div className="carousel" key={item.id}>
+                                <img className="cImage" src={item.image} alt="image1"/>
+                                <div>
+                                <Text fontWeight="700">{item.brand}</Text>
+                                <Text>{item.title}</Text>
+                                <div style={{display:"flex",justifyContent:"space-around",width:"100px",margin:"auto"}}> 
+                                <Text textDecoration="line-through">{item.original_price}</Text>
+                                <Text>{item.discount}</Text>
+                                </div>
+                                <div style={{display:"flex",justifyContent:"space-around",width:"100px",margin:"auto"}}>
+                                <Text fontWeight="700">{item.price}</Text>
+                                <Image cursor="pointer" onClick={()=>dispatch(addTocart(item))} src="https://cdn-icons-png.flaticon.com/128/7244/7244661.png" width="25px" height="20px" alt="heart"/>
+                                </div>
+                                </div>
+                            </div>
+                    ))
+                }
+            </Slider>   
+            </div>
+            </div>
+            <Box display="flex" width="90%" margin="auto">
+                <div style={lastBanner1}>
+                    
+                    <Box fontFamily="Playfair Display,sans-serif" marginLeft="10px" padding="20px" height="150px" width="450px"color="black" bg="white" >
+                        <Text  marginTop="2" fontSize="24px" fontWeight="700" >THERE'S NO PLACE LIKE HOME</Text>
+                        <Text  marginTop="4" fontSize="14px" fontWeight="100" color="gray.500">Discover the new selection of interior design</Text>
+                        <Text  marginTop="4" fontSize="14px" fontWeight="600" textDecoration="underline">Shop Now</Text>
+                    </Box>
+                </div>
+                <div style={lastBanner2}>   
+                <Box fontFamily="Playfair Display,sans-serif" marginLeft="10px" padding="20px" height="150px" width="450px"color="black" bg="white" >
+                        <Text  marginTop="2" fontSize="24px" fontWeight="700" >SMELLS LIKE TEEN SPIRIT</Text>
+                        <Text  marginTop="4" fontSize="14px" fontWeight="100" color="gray.500">90's grunge and punk-rock details</Text>
+                        <Box display="flex" width="200px" justifyContent="space-around">
+                        <Text  marginTop="4" fontSize="14px" fontWeight="600" textDecoration="underline">EXPLORE</Text>
+                        <Text  marginTop="4" fontSize="14px" fontWeight="600" textDecoration="underline">SHOP NOW</Text>
+                        </Box>
+                    </Box>
+                </div>
+            </Box>
         </div>
     )
 }

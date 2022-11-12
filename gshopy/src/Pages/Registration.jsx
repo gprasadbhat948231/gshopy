@@ -1,4 +1,4 @@
-import {
+    import {
     FormControl,
     Input,
     Text,
@@ -8,8 +8,8 @@ import {
   import axios from "axios";
   import { AuthContext } from '../Context/authContextProvider';
   import {LoginSuccessAction,LoginFailureAction,LoginLoadingAction} from "../Context/action"
-    import { useContext,useState } from 'react';
-    import { Navigate } from 'react-router-dom';
+  import { useContext,useState } from 'react';
+  import { Navigate } from 'react-router-dom';
 function Register()
 {
     const {state,dispatch}=useContext(AuthContext);
@@ -22,21 +22,24 @@ function Register()
     const handleLogin=()=>{
         if(logindet.email==="admin@gmail.com"&&logindet.password==="nimda")
         {
-            console.log("true");
-            dispatch(LoginSuccessAction("guru"))
+            alert("Admin Login Successful")
+            dispatch(LoginSuccessAction(logindet.email))
             return window.location.href="adminpage"
         }
-        dispatch(LoginLoadingAction());
-        axios.post('https://reqres.in/api/login',{
-            email:logindet.email,
-            password:logindet.password
-        })
-        .then((res)=>{
-            dispatch(LoginSuccessAction(logindet.firstname))
-        })
-        .catch(()=>{
-            dispatch(LoginFailureAction());
-        })
+        else{
+            dispatch(LoginLoadingAction());
+            axios.post('https://reqres.in/api/login',{
+                email:logindet.email,
+                password:logindet.password
+            })
+            .then((res)=>{
+                alert(`User Login Successful ${logindet.firstname}`)
+                dispatch(LoginSuccessAction(logindet.firstname))
+            })
+            .catch(()=>{
+                dispatch(LoginFailureAction());
+            })
+        }
     }
     if(state.isAuth)
     {

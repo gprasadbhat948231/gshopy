@@ -947,6 +947,17 @@
       "type": "shirt",
       "discount": "(72% off)",
       "image": "https://assets.ajio.com/medias/sys_master/root/20210316/uFwv/604faf867cdb8c1f146331d3/the_indian_garage_co_blue_checked_slim_fit_shirt_with_patch_pocket.jpg"
+    },
+    {
+      "image": "https://assets.ajio.com/medias/sys_master/root/20210403/AcbB/6068b6caf997dd7b64643def/dennislingo_premium_attire_green_striped_slim_fit_shirt.jpg",
+      "category": "Mens",
+      "brand": "Adidas",
+      "title": "Adidas Shirt",
+      "price": "1799",
+      "original_price": "2009",
+      "offer_price": 1499,
+      "discount": "(20%)",
+      "id": 84
     }
   ],
   "Womens": [
@@ -2269,6 +2280,17 @@
       "type": "dress",
       "discount": "(66% off)",
       "image": "https://assets.ajio.com/medias/sys_master/root/20210403/1vgm/606861faaeb269a9e331278d/miss_chase_blue_denim_dungarees_with_insert_pockets.jpg"
+    },
+    {
+      "image": "https://assets.ajio.com/medias/sys_master/root/20210719/18Ns/60f5a94baeb269a9e3475bc0/teamspirit_grey_trackpants_with_elasticated_waistband.jpg",
+      "category": "Womens",
+      "brand": "Nykaa",
+      "title": "Nykaa pant",
+      "price": "299",
+      "original_price": "799",
+      "offer_price": 599,
+      "discount": "20%",
+      "id": 111
     }
   ],
   "Childrens": [

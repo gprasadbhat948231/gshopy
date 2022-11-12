@@ -121,7 +121,7 @@ function Men()
             <div className="pagination">
                 <Button disabled={page===1} onClick={()=>handlePage(-1)}>Prev</Button>
                 <Button disabled>{page}</Button>
-                <Button disabled={page===4} onClick={()=>handlePage(1)}>Next</Button>
+                <Button disabled={page===6} onClick={()=>handlePage(1)}>Next</Button>
             </div>
         </div>
     )
