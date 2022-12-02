@@ -10,7 +10,7 @@ import { addTocart } from "../Cartcontext/action";
 import { CartContext } from "../Cartcontext/CartContextProvider";
 import { NavLink } from "react-router-dom";
 const getData=()=>{
-    return axios.get(`http://localhost:3002/Womens?_limit=12`);
+    return axios.get(`https://gshoppingdb.onrender.com/womens?_limit=12`);
 }
 
 const banner={

@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const postData=(cat,item)=>{
-    return axios.post(`http://localhost:3002/${cat}`,{
+    return axios.post(`https://gshoppingdb.onrender.com/${cat}`,{
         image:item.image,
         category:item.category,
         brand:item.brand,

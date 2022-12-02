@@ -12,7 +12,7 @@ import {
     ModalCloseButton,
   } from '@chakra-ui/react'
 const getDataMen=(page)=>{
-    return axios.get(`http://localhost:3002/Womens?_limit=20&_page=${page}`);
+    return axios.get(`https://gshoppingdb.onrender.com/womens?_limit=20&_page=${page}`);
 }
 const deleteProduct=(id)=>{
     return axios({
@@ -22,7 +22,7 @@ const deleteProduct=(id)=>{
       });
 }
 const handleEditData=(id,image,offer,discount)=>{
-  return fetch(`http://localhost:3002/Mens/${id}`,{
+  return fetch(`https://gshoppingdb.onrender.com/womens${id}`,{
   method:"PATCH",
   headers:{
       'Content-Type':'application/json'

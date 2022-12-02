@@ -15,17 +15,17 @@ import {
   } from '@chakra-ui/react'
 import './men.css'
 const getDataMen=(page)=>{
-    return axios.get(`http://localhost:3002/Mens?_limit=20&_page=${page}`);
+    return axios.get(`https://gshoppingdb.onrender.com/mens?_limit=20&_page=${page}`);
 }
 const deleteProduct=(id)=>{
     return axios({
         method: "DELETE",
-        baseURL: "http://localhost:3002",
-        url: `/Mens/${id}`
+        baseURL: "https://gshoppingdb.onrender.com",
+        url: `/mens/${id}`
       });
 }
 const handleEditData=(id,image,offer,discount)=>{
-    return fetch(`http://localhost:3002/Mens/${id}`,{
+    return fetch(`https://gshoppingdb.onrender.com/mens/${id}`,{
     method:"PATCH",
     headers:{
         'Content-Type':'application/json'

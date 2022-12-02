@@ -18,7 +18,7 @@ import { addTocart } from "../Cartcontext/action";
 import { CartContext } from "../Cartcontext/CartContextProvider";
 
 const getData=(page,order)=>{
-  return axios.get(`http://localhost:3002/Mens?_sort=offer_price&_order=${order}&_page=${page}&_limit=15`);
+  return axios.get(`https://gshoppingdb.onrender.com/mens?_sort=offer_price&_order=${order}&_page=${page}&_limit=15`);
 }
 function MensProducts()
 {
