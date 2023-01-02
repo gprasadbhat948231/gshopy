@@ -22,3 +22,6 @@ This is the E-commerce website you can find the products related to Men and Wome
 This is the Landing Page of our project. 
 
 *******************************************************************************************************************************
+
+# Cart and Checkout Page
+  ![Gshopy_Cart_Checkout](https://user-images.githubusercontent.com/107459781/210256154-271171c2-5c24-4979-bfd5-9366f7143d56.png)
