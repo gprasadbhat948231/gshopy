@@ -18,5 +18,7 @@ This is the E-commerce website you can find the products related to Men and Wome
 
 ## More info the Project (Gshopy)
 
-
+![gshopy_landing](https://user-images.githubusercontent.com/107459781/210255719-137fa2d3-f4ae-46c7-8bc3-875aa116c522.png)
 This is the Landing Page of our project. 
+
+*******************************************************************************************************************************
