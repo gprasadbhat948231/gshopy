@@ -5,7 +5,7 @@ This is the E-commerce website you can find the products related to Men and Wome
   This is an individual project completed in construct week within 5 days.
   
 # Tech Stacks used
-  **Client** - React, Redux, Chakra UI
+  **Client** - React, Chakra UI
   
   **Server** - API, Vercel
   
